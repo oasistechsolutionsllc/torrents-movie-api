@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <meta charset="UTF-8">
+    <title>Free Movies</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        .navbar-wrapper {
+
+        }
+
+        .page-title {
+            text-align: center;
+            display: block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="mb-5">
+    <nav class="bg-dark py-3">
+        <div class="container">
+            <div class="navbar-wrapper">
+                <a href="index.html" class="page-title text-center fs-3 text-decoration-none text-white">YTS MOVIES</a>
+                <form role="search" method="get" action="search.html">
+                    <input class="form-control me-2" type="search" placeholder="Type a title and press enter..."
+                           aria-label="Search"
+                           name="search">
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 gy-5" id="movies"></div>
+    <div class="vh-100 d-flex justify-content-center align-items-center" id="loader">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<section class="bg-dark">
+    <div class="container">
+        <div class="pagination d-flex justify-content-between text-white py-5 align-items-center mb-0 bg-dark"
+             id="pager-wrapper">
+            <a class="btn btn-danger btn-lg" id="prev">NEXT</a>
+            <p id="page-count"></p>
+            <a class="btn btn-danger btn-lg" id="next">NEXT</a>
+        </div>
+    </div>
+</section>
+<script src="pager.js"></script>
+</body>
+</html>
