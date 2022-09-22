@@ -8,12 +8,9 @@
     <meta charset="UTF-8">
     <title>Free Movies</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json" />
 
     <style>
-        .navbar-wrapper {
-
-        }
-
         .page-title {
             text-align: center;
             display: block;
@@ -56,5 +53,6 @@
     </div>
 </section>
 <script src="js/index.js"></script>
+<script>navigator.serviceWorker.register("sw.js")</script> 
 </body>
 </html>
