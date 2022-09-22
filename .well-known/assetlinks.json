@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.netlify.oasistechsolutions_crafted_app.twa",
+                     "sha256_cert_fingerprints": ["60:3F:4C:0C:0F:D9:4D:74:D2:B5:50:D8:45:45:16:41:9E:9F:32:D4:42:9A:36:57:94:7F:F1:A0:21:8D:38:88"] }
+      }
+]
