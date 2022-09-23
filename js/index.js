@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
 
-document.addEventListener('contextmenu', (event) => {
+let bodyTag = document.getElementById('body')
+bodyTag.addEventListener('touchstart', (event) => {
     event.preventDefault();
+    event.stopPropagation();
 })
 
 const getMovies = async () => {
