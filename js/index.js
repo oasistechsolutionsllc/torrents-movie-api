@@ -1,5 +1,6 @@
 let page = 1;
 let html = '';
+let lastMovie;
 
 document.addEventListener("DOMContentLoaded", () => {
     getMovies();
@@ -18,14 +19,15 @@ const getMovies = async () => {
 
             movies.forEach(movie => {
                 html += `<div class="col">
-                    <img src="${movie['medium_cover_image']}" alt="${movie['title']}" class="w-100" style="min-height: 300px">
+                    <img src="${movie['medium_cover_image']}" alt="${movie['title']}" class="movie-poster w-100">
                     <h3 class="fs-5 text-truncate">${movie['title']}</h3>
                     <a href="movie.html?movie_id=${movie['id']}" class="btn btn-warning mb-3 d-block">View Movie</a>
                 </div>`;
             })
             document.getElementById('movies').innerHTML = html;
+
             const movieEntries = document.querySelectorAll('.row .col')
-            let lastMovie = movieEntries[movieEntries.length -1]
+            let lastMovie = movieEntries[movieEntries.length - 1]
             observer.observe(lastMovie)
         } else if (response.status === 401) {
             console.log("Something was wrong fetching the API")
@@ -54,12 +56,12 @@ function loadingMovies(estado) {
 
 let observer = new IntersectionObserver((listMovies) => {
     listMovies.forEach(listMovie => {
-        if (listMovie.isIntersecting){
+        if (listMovie.isIntersecting) {
             page++
             getMovies();
         }
     })
 }, {
-    'rootMargin': '0px',
+    'rootMargin': '0px 0px 200px 0px',
     'threshold': 1.0
 });
