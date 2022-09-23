@@ -22,11 +22,11 @@ const getMovieDetails = async () => {
         demo.innerHTML = `
            <div class="col-sm-4 col-md-3">
                 <div class="portada">
-                    <img src="${movieDetails['medium_cover_image']}" alt="${movieDetails['title']}" class="w-100 rounded mb-1">
+                    <img src="${movieDetails['medium_cover_image']}" alt="${movieDetails['title']}" class="w-100 rounded-0 mb-1">
                 </div>
                 <div id="download-buttons"></div>
            </div>
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-8 col-md-9 text-center text-sm-start">
                 <h1 class="fs-3 text-uppercase">${movieDetails['title']}</h1>
                 <p class="lead"><span class="fw-bold">Year: </span>${movieDetails['year']}</p>
                 <p class="lead"><span class="fw-bold">Rating: </span>${movieDetails['rating']}</p>
@@ -38,7 +38,7 @@ const getMovieDetails = async () => {
 
         const torrentLinks = movieDetails['torrents']
         torrentLinks.forEach(torrentLink => {
-            let link = `<a href="${torrentLink['url']}" class="btn btn-success d-block mb-1">Download</a>`;
+            let link = `<a href="${torrentLink['url']}" class="btn btn-success d-block mb-1 rounded-0">Download</a>`;
             const downloadButtons = document.getElementById('download-buttons')
             downloadButtons.innerHTML += link;
         })
