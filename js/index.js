@@ -1,30 +1,32 @@
+let page = 1;
+let html = '';
+
 document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
-
-let page = 1;
-
 const getMovies = async () => {
     try {
         loadingMovies(true)
-        const url = `https://yts.mx/api/v2/list_movies.json?page=1&limit=18`;
+        const url = `https://yts.mx/api/v2/list_movies.json?page=${page}&limit=18`;
+
         const response = await fetch(url);
 
         if (response.status === 200) {
             const data = await response.json()
-            const results = data.data;
-            const movies = results.movies;
-
-            let html = '';
+            const results = data['data'];
+            const movies = results['movies'];
 
             movies.forEach(movie => {
                 html += `<div class="col">
-                    <img src="${movie.medium_cover_image}" alt="${movie.title}" class="w-100">
-                    <h3 class="fs-5 text-truncate">${movie.title}</h3>
-                    <a href="movie.html?movie_id=${movie.id}" class="btn btn-warning mb-3 d-block">View Movie</a>
+                    <img src="${movie['medium_cover_image']}" alt="${movie['title']}" class="w-100" style="min-height: 300px">
+                    <h3 class="fs-5 text-truncate">${movie['title']}</h3>
+                    <a href="movie.html?movie_id=${movie['id']}" class="btn btn-warning mb-3 d-block">View Movie</a>
                 </div>`;
             })
             document.getElementById('movies').innerHTML = html;
+            const movieEntries = document.querySelectorAll('.row .col')
+            let lastMovie = movieEntries[movieEntries.length -1]
+            observer.observe(lastMovie)
         } else if (response.status === 401) {
             console.log("Something was wrong fetching the API")
         } else if (response.status === 404) {
@@ -41,7 +43,6 @@ const getMovies = async () => {
 
 }
 
-
 function loadingMovies(estado) {
     if (estado) {
         document.getElementById('loader').classList.remove('d-none');
@@ -51,14 +52,14 @@ function loadingMovies(estado) {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+let observer = new IntersectionObserver((listMovies) => {
+    listMovies.forEach(listMovie => {
+        if (listMovie.isIntersecting){
+            page++
+            getMovies();
+        }
+    })
+}, {
+    'rootMargin': '0px',
+    'threshold': 1.0
+});
