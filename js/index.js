@@ -5,6 +5,11 @@ let lastMovie;
 document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
+
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+})
+
 const getMovies = async () => {
     try {
         loadingMovies(true)
