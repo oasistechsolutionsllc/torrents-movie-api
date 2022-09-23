@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
 
+let bodyTag = document.getElementById('pager-wrapper')
+bodyTag.addEventListener('touchstart', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+})
+
 const getMovies = async () => {
     try {
         loadingMovies(true)

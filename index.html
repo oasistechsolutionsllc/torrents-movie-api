@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>Free Movies</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="manifest.json"/>
 
     <style>
         .page-title {
@@ -17,40 +17,41 @@
             margin-bottom: 15px;
         }
 
-        .movie-poster{
+        .movie-poster {
             min-height: 165px;
         }
 
     </style>
 </head>
 <body>
-
-<header class="mb-5">
-    <nav class="bg-dark py-3">
-        <div class="container">
-            <div class="navbar-wrapper">
-                <a href="index.html" class="page-title text-center fs-3 text-decoration-none text-white">YTS MOVIES</a>
-                <p class="lead text-white text-center text-capitalize">Developed with love by Isidro Gonzalez</p>
-                <form role="search" method="get" action="search.html">
-                    <input class="form-control me-2" type="search" placeholder="Type a title and press enter..."
-                           aria-label="Search"
-                           name="search">
-                </form>
+<div id="page-content-wrapper">
+    <header class="mb-5">
+        <nav class="bg-dark py-3">
+            <div class="container">
+                <div class="navbar-wrapper">
+                    <a href="index.html" class="page-title text-center fs-3 text-decoration-none text-white">YTS
+                        MOVIES</a>
+                    <p class="lead text-white text-center text-capitalize">Developed with love by Isidro Gonzalez</p>
+                    <form role="search" method="get" action="search.html">
+                        <input class="form-control me-2" type="search" placeholder="Type a title and press enter..."
+                               aria-label="Search"
+                               name="search">
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
-<div class="container">
-    <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 gy-5" id="movies"></div>
-    <div class="py-5 my-5 d-flex justify-content-center align-items-center" id="loader">
-        <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+    <div class="container">
+        <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 gy-5" id="movies"></div>
+        <div class="py-5 my-5 d-flex justify-content-center align-items-center" id="loader">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
     </div>
 </div>
-
 <script src="js/index.js"></script>
-<script>navigator.serviceWorker.register("sw.js")</script> 
+<script>navigator.serviceWorker.register("sw.js")</script>
 </body>
 </html>
