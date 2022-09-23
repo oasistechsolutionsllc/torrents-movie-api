@@ -6,12 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
 
-let bodyTag = document.getElementById('body')
-bodyTag.addEventListener('touchstart', (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-})
-
 const getMovies = async () => {
     try {
         loadingMovies(true)
