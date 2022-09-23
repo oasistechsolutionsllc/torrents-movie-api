@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     getMovies();
 })
 
-let bodyTag = document.getElementById('pager-wrapper')
+let bodyTag = document.getElementById('page-content-wrapper')
 bodyTag.addEventListener('touchstart', (event) => {
     event.preventDefault();
     event.stopPropagation();
