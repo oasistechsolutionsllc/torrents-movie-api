@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
     //    my code here
     getMovieDetails();
 })
+
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+})
+
 const demo = document.getElementById('movie');
 let urlLocation = window.location.href;
 const replacedUrl = urlLocation.replace('=', '/');

@@ -2,6 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     SearchMovies();
 })
 
+document.addEventListener('contextmenu', (event) => {
+    event.preventDefault();
+})
+
 const SearchMovies = async () => {
 
     try {
