@@ -24,11 +24,17 @@ const getMovies = async () => {
                     <a href="movie.html?movie_id=${movie['id']}" class="btn btn-info mb-3 d-block rounded-0">View Movie</a>
                 </div>`;
             })
+
             document.getElementById('movies').innerHTML = html;
 
+            if(lastMovie){
+                observer.unobserve(lastMovie)
+            }
+
             const movieEntries = document.querySelectorAll('.row .col')
-            let lastMovie = movieEntries[movieEntries.length - 1]
+            lastMovie = movieEntries[movieEntries.length - 1]
             observer.observe(lastMovie)
+
         } else if (response.status === 401) {
             console.log("Something was wrong fetching the API")
         } else if (response.status === 404) {
