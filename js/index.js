@@ -14,7 +14,7 @@ document.addEventListener('contextmenu', (event) => {
 const getMovies = async () => {
     try {
         loadingMovies(true)
-        const url = `https://yts.mx/api/v2/list_movies.json?page=${page}&limit=18`;
+        const url = `https://yts.mx/api/v2/list_movies.json?page=${page}&limit=18&sort_by=year`;
 
         const response = await fetch(url);
 
