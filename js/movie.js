@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    //    my code here
     getMovieDetails();
 })
 
@@ -41,12 +40,18 @@ const getMovieDetails = async () => {
                 <p class="lead">${movieDetails['description_full']}</p>
             </div>`;
 
+        const movieDetailsURL = movieDetails['url']
+        const splitMovieDetailsURL = movieDetailsURL.split('/')
+        const sliceMovieDetailsURL = splitMovieDetailsURL.slice(-1)
+        const getMovieDetailsURL = sliceMovieDetailsURL[0]
+
         const torrentLinks = movieDetails['torrents']
         torrentLinks.forEach(torrentLink => {
-            let link = `<a href="${torrentLink['url']}" class="btn btn-success d-block mb-1 rounded-0">Download</a>`;
+            let link = `<a href="magnet:?xt=urn:btih:${torrentLink['hash']}&dn=${getMovieDetailsURL.replace('-', '+').replace(' ', '+')}&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr= udp://tracker.leechers-paradise.org:6969&tr=udp://p4p.arenabg.ch:1337&tr=udp://tracker.internetwarriors.net:1337" class="btn btn-success d-block mb-1 rounded-0 torrent-link">Magnet Link</a>`;
             const downloadButtons = document.getElementById('download-buttons')
             downloadButtons.innerHTML += link;
         })
+
 
     } catch (error) {
         console.log(error)
