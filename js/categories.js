@@ -14,6 +14,7 @@ const getMovies = async () => {
     try {
         pageLoader(true)
         const urlEndPoint = `https://yts.mx/api/v2/list_movies.json?genre=${getUrlParam}&page=${page}&limit=18&sort_by=rating`
+        console.log(urlEndPoint)
         const response = await fetch(urlEndPoint)
         const data = await response.json()
         const movies = data['data']['movies']
