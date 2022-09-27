@@ -24,11 +24,13 @@ const getMovies = async () => {
             const movies = results['movies'];
 
             movies.forEach(movie => {
+
                 html += `<div class="col">
                     <img src="${movie['medium_cover_image']}" alt="${movie['title']}" class="movie-poster w-100">
                     <h3 class="fs-5 text-truncate">${movie['title']}</h3>
                     <a href="movie.html?movie_id=${movie['id']}" class="btn btn-primary mb-3 d-block rounded-0">View Movie</a>
                 </div>`;
+
             })
 
             document.getElementById('movies').innerHTML = html;
