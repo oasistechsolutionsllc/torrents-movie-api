@@ -13,7 +13,7 @@ document.addEventListener('contextmenu', (event) => {
 
 const getMovies = async () => {
     try {
-        loadingMovies(true)
+        pageLoader(true)
         const url = `https://yts.mx/api/v2/list_movies.json?page=${page}&limit=18&sort_by=rating`;
 
         const response = await fetch(url);
@@ -54,15 +54,15 @@ const getMovies = async () => {
     } catch (error) {
         console.log(error)
     } finally {
-        loadingMovies(false)
+        pageLoader(false)
         const categorySection = document.getElementById('categories')
         categorySection.classList.remove('d-none')
     }
 
 }
 
-function loadingMovies(estado) {
-    if (estado) {
+const pageLoader = (loadingState) => {
+    if (loadingState) {
         document.getElementById('loader').classList.remove('d-none');
     } else {
         document.getElementById('loader').classList.add('d-none');
@@ -81,3 +81,5 @@ let observer = new IntersectionObserver((listMovies) => {
     'rootMargin': '0px 0px 200px 0px',
     'threshold': 1.0
 });
+
+

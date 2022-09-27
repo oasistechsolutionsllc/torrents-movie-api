@@ -10,7 +10,7 @@ const SearchMovies = async () => {
 
     try {
 
-        loadingMovies(true);
+        pageLoader(true);
 
         let urlLocation = window.location.href;
         const replacedUrl = urlLocation.replace('=', '/');
@@ -46,14 +46,14 @@ const SearchMovies = async () => {
             movieID.innerHTML = `<h1 class="text-center">No Movie was found</h1>`
         }
     } finally {
-        loadingMovies(false)
+        pageLoader(false)
     }
 
 }
 
-const loadingMovies = (state) => {
+const pageLoader = (loadingState) => {
 
-    if (state) {
+    if (loadingState) {
         document.getElementById('loader').classList.remove('d-none');
     } else {
         document.getElementById('loader').classList.add('d-none');
