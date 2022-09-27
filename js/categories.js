@@ -34,6 +34,8 @@ const getMovies = async () => {
         pageLoader(false)
         const categoryName = document.getElementById('category-name')
         categoryName.innerText = 'movies in: ' + getUrlParam
+        const categorySection = document.getElementById('categories')
+        categorySection.classList.remove('d-none')
     }
 }
 

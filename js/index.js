@@ -55,6 +55,8 @@ const getMovies = async () => {
         console.log(error)
     } finally {
         loadingMovies(false)
+        const categorySection = document.getElementById('categories')
+        categorySection.classList.remove('d-none')
     }
 
 }
