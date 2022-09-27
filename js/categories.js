@@ -23,7 +23,8 @@ const getMovies = async () => {
         movies.forEach(movie => {
             const movieDetails = `<div class="col">
                 <img src="${movie['medium_cover_image']}" alt="${movie['title']}" class="movie-poster w-100">
-                <h1 class="fs-6 text-truncate">${movie['title']}</h1>
+                <h3 class="fs-6 text-truncate">${movie['title']}</h3>
+                <a href="movie.html?movie_id=${movie['id']}" class="btn btn-primary mb-3 d-block rounded-0">View Movie</a>
              </div>`
             movieList.innerHTML += movieDetails
         })
