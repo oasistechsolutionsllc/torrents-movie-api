@@ -5,10 +5,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="manifest" href="manifest.json"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet">
     <title>Categories</title>
     <style>
+
+        body{
+            background-color: #332D2D;
+            color: #dddd;
+        }
+
         .page-title {
             text-align: center;
             display: block;
@@ -23,7 +28,7 @@
 <body>
 
 <header class="mb-3">
-    <nav class="bg-dark py-5">
+    <nav class="bg-dark py-5 shadow-5-strong">
         <div class="container">
             <div class="navbar-wrapper">
                 <a href="/" class="page-title text-center fs-3 text-decoration-none text-white">YTS
@@ -81,7 +86,7 @@
 
 <div class="container">
     <div class="py-5 my-5 d-flex justify-content-center align-items-center" id="loader">
-        <div class="spinner-border" role="status">
+        <div class="spinner-border text-warning" role="status" style="width: 2rem; height: 2rem;">
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>

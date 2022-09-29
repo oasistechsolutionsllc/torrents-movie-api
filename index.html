@@ -7,10 +7,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Free Movies</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css" rel="stylesheet">
     <link rel="manifest" href="manifest.json"/>
 
     <style>
+        body{
+            background-color: #332D2D;
+            color: #dddd;
+        }
         .page-title {
             text-align: center;
             display: block;
@@ -26,7 +30,7 @@
 <body>
 <div id="page-content-wrapper">
     <header class="mb-5">
-        <nav class="bg-dark py-3">
+        <nav class="bg-dark py-3 shadow-5-strong">
             <div class="container">
                 <div class="navbar-wrapper">
                     <a href="/" class="page-title text-center fs-3 text-decoration-none text-white">YTS
@@ -78,7 +82,7 @@
     <div class="container">
         <div class="row row-cols-3 row-cols-sm-4 row-cols-md-5 row-cols-lg-6 gy-5" id="movies"></div>
         <div class="py-5 my-5 d-flex justify-content-center align-items-center" id="loader">
-            <div class="spinner-border" role="status">
+            <div class="spinner-border text-warning" role="status" style="width: 2rem; height: 2rem;">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
